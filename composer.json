@@ -1,0 +1,21 @@
+{
+    "name": "daesuite/shanthiniketan-import",
+    "description": "Import handler for Shanthiniketan",
+    "type": "library",
+    "require": {
+        "php": "^8.2",
+        "daesuite/core-import": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Daesuite\\Shanthiniketan\\Import\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Daesuite\\Shanthiniketan\\Import\\ServiceProvider"
+            ]
+        }
+    }
+}
