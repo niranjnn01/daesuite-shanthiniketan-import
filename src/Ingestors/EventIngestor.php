@@ -42,8 +42,9 @@ class EventIngestor implements IngestorHandler
                 ->first();
 
                 // dump($album);
+                $gallery_item_album_id  = 0;
                 if( $album ) {
-
+                    $gallery_item_album_id = $galleryItem->album_id;
                     $data[$galleryItem->album_id] = [
                         'title' => $album->title,
                         'description' => $album->description,
@@ -53,7 +54,7 @@ class EventIngestor implements IngestorHandler
                 } else {
                     // image with no album
                     $data[0] = [
-                        'title' => 'no album',
+                        'title' => 'img-with-no-album',
                         'description' => '',
                         'created_on' => $galleryItem->created_on,
                         'resources' => []
@@ -63,7 +64,12 @@ class EventIngestor implements IngestorHandler
             }
 
                 
-            $data[$galleryItem->album_id]['resources'][] = $galleryItem->uid;
+            $data[$gallery_item_album_id]['resources'][] = [
+                'uid' => $galleryItem->uid,
+                'title' => $galleryItem->title,
+                'description' => $galleryItem->description,
+                'file_name' => $galleryItem->file_name
+            ];
 
         } 
 
