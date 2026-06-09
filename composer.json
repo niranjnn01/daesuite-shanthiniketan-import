@@ -4,7 +4,7 @@
     "type": "library",
     "require": {
         "php": "^8.2",
-        "daesuite/daesuite-import-core": "*"
+        "daesuite/daesuite-import-core": "^1.0"
     },
     "autoload": {
         "psr-4": {
